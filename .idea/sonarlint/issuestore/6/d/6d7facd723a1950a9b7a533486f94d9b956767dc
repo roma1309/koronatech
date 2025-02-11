@@ -1,0 +1,6 @@
+
+^
+java:S4973\"<Strings and Boxed types should be compared using "equals()".(‹€ãüÿÿÿÿ8ÇÜØŞÎ2
+t
+java:S6204\"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(‹€ãüÿÿÿÿ8×ÜØŞÎ2
+G	java:S106f"+Replace this use of System.out by a logger.(‚¨Ö§8×ÜØŞÎ2

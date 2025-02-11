@@ -1,0 +1,30 @@
+
+g	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÕÇöåÎ2
+i
+java:S1192["LDefine a constant instead of duplicating this literal "^\\s+|\\s+$" 7 times.(öŞ­¦8ÕÇöåÎ2
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‡ÛŸÚıÿÿÿÿ8äÈöåÎ2
+X	java:S125"<This block of commented-out lines of code should be removed.(â–Ûˆ8äÈöåÎ2
+L	java:S106/"+Replace this use of System.out by a logger.(©ÔŸåüÿÿÿÿ8æÈöåÎ2
+L	java:S106S"+Replace this use of System.out by a logger.(ı™øøÿÿÿÿ8æÈöåÎ2
+q
+java:S5850["TGroup parts of the regex together to make the intended operator precedence explicit.(öŞ­¦8æÈöåÎ2
+q
+java:S5850\"TGroup parts of the regex together to make the intended operator precedence explicit.(ñğ¨¡8æÈöåÎ2
+v
+java:S5850]"TGroup parts of the regex together to make the intended operator precedence explicit.(éÕ„„ÿÿÿÿÿ8æÈöåÎ2
+G	java:S106b"+Replace this use of System.out by a logger.(‡½â8òÈöåÎ2
+q
+java:S5850j"TGroup parts of the regex together to make the intended operator precedence explicit.(û‡˜8òÈöåÎ2
+v
+java:S5850k"TGroup parts of the regex together to make the intended operator precedence explicit.(Çì«ìøÿÿÿÿ8òÈöåÎ2
+v
+java:S5850l"TGroup parts of the regex together to make the intended operator precedence explicit.(Øê’ıÿÿÿÿ8öÈöåÎ2
+v
+java:S5850m"TGroup parts of the regex together to make the intended operator precedence explicit.(ÃĞóûÿÿÿÿ8öÈöåÎ2
+G	java:S106p"+Replace this use of System.out by a logger.(óÃ…8öÈöåÎ2
+M
+java:S1128
+"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8üòöåÎ2
+J
+java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX8üòöåÎ2
