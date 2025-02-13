@@ -41,7 +41,7 @@ public class FileUtil {
                         incorrectData.add(line);
                     }
                 } else {
-                    incorrectData.add(line);
+                    incorrectData.add(line.trim());
                 }
             }
         } catch (IOException ex) {
@@ -50,53 +50,17 @@ public class FileUtil {
         return managerSet;
     }
 
-    public static void writeFile(Set<Manager> managerSet, List<String> incorrectData, Set<Employee> incorrectEmployee) {
-        try (FileWriter writer = new FileWriter("OUTPUT.txt", false)) {
-            List<Manager> managerList = managerSet.stream().sorted().toList();
-            for (Manager manager : managerList) {
-                writer.write(manager.toString());
-                writer.append('\n');
-                manager.sortBySalary().stream().forEach(x -> {
-                    try {
-                        writer.write(x.toString());
-                        writer.append('\n');
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-                writer.write(manager.generateStatistics().toString());
-                writer.append('\n');
-                writer.flush();
-            }
-            writer.write("Некорректные данные");
-            writer.append('\n');
-            for (Employee employee : incorrectEmployee) {
-                writer.write(employee.toString());
-                writer.append('\n');
-            }
-            for (String data : incorrectData) {
-                writer.write(data);
-                writer.append('\n');
-            }
-            writer.flush();
-        } catch (IOException ex) {
-
-            System.out.println(ex.getMessage());
-        }
-    }
-
     private static Manager createManager(String[] fields) {
         try {
             Manager manager = new Manager();
-            if (fields[0].equals("Manager")) {
                 manager.setId(Long.parseLong(fields[1].replaceAll("^\\s+|\\s+$", "")));
                 manager.setName(fields[2].replaceAll("^\\s+|\\s+$", ""));
                 manager.setSalary(Float.parseFloat(fields[3].replaceAll("^\\s+|\\s+$", "")));
                 manager.setDepartment(fields[4]);
                 return manager;
-            }
+
         } catch (NumberFormatException exception) {
-            System.out.println(exception.getMessage() + "  2 catch");
+            System.out.println(exception.getMessage() );
         }
         return null;
     }
@@ -110,7 +74,7 @@ public class FileUtil {
             employee.setManagerId(Long.parseLong(fields[4].replaceAll("^\\s+|\\s+$", "")));
             return employee;
         } catch (NumberFormatException exception) {
-            System.out.println(exception.getMessage() + "  3 catch");
+            System.out.println(exception.getMessage());
         }
         return null;
     }

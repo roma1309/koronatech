@@ -22,7 +22,7 @@ public class Statistics {
     }
 
     public void setAverageSalary(double averageSalary) {
-        this.averageSalary = (float) (Math.round(averageSalary * 100.0) / 100.0);
+        this.averageSalary = (Math.round(averageSalary * 100.0) / 100.0);
     }
 
     @Override

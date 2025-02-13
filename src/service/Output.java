@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface Output {
-    public void outputConsole(Set<Manager> managerSet, Set<Employee> incorrectEmployee, List<String> incorrectData);
+    public void outputConsole(Set<Manager> managerSet, Set<Employee> incorrectEmployee, List<String> incorrectData, String sort, String order);
 
-    public void outputFile();
+    public void outputFile(Set<Manager> managerSet, List<String> incorrectData, Set<Employee> incorrectEmployee, String fileName, String sort, String order);
 }

@@ -1,5 +1,6 @@
 package model;
 
+import implComparator.EmployeeComparatorByName;
 import implComparator.EmployeeComparatorBySalary;
 import service.ManagerService;
 
@@ -95,9 +96,26 @@ public class Manager implements ManagerService, Comparable<Manager> {
         employeeSet.removeAll(employeesForManager);
     }
 
+
     @Override
-    public List sortBySalary() {
+    public List<Employee> sortByNameEmployee(String sortOrder) {
+        EmployeeComparatorByName employeeComparatorByName = new EmployeeComparatorByName();
+        if (sortOrder != null) {
+            if (sortOrder.equals("desc")) {
+                return getEmployees().stream().sorted(employeeComparatorByName.reversed()).collect(Collectors.toList());
+            }
+        }
+        return getEmployees().stream().sorted(employeeComparatorByName).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Employee> sortBySalaryEmployee(String sortOrder) {
         EmployeeComparatorBySalary employeeComparatorBySalary = new EmployeeComparatorBySalary();
+        if (sortOrder != null) {
+            if (sortOrder.equals("desc")) {
+                return getEmployees().stream().sorted(employeeComparatorBySalary.reversed()).collect(Collectors.toList());
+            }
+        }
         return getEmployees().stream().sorted(employeeComparatorBySalary).collect(Collectors.toList());
     }
 
@@ -106,8 +124,8 @@ public class Manager implements ManagerService, Comparable<Manager> {
         Statistics statistics = new Statistics();
         statistics.setCountEmployee((long) (1 + employees.size()));
         double sum = employees.stream().mapToDouble(p -> p.getSalary()).sum();
-        System.out.println(sum);
-        statistics.setAverageSalary((sum + getSalary()) / 2);
+        double average = ((sum + getSalary()) / 2);
+        statistics.setAverageSalary(average);
         return statistics;
     }
 
