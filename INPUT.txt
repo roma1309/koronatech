@@ -1,14 +1,14 @@
-   Employee,101,John Doe,3000.467,1
-  Employee,343,John Doe,3000.467,1
-   Employee,102,Emily Johnson,abc,1
-Manager,2, Michael Brown  ,6000,Sales
-Employee,103,Chris White,2900,3
-   Employee,  104  ,Anna Taylor,3100,2
+Manager,1,Jane Smith,5000,HR
+Employee,101,John Doe,3000,1
+Employee,3,Anily Johnson,15555,1
+Employee,4,Bily Vohnson,16555,1
+Employee,102,Emily Johnson,abc,1
+Manager,2,Michael Brown,6000,Sales
+Employee,103,Chris White,-2900,2
+Employee,104,Anna Taylor,3100,2
 Employee,105,Robert Black,,2
-Manager,3, Michael Brown  ,6000,Sales
-Employee,111,Anna Taylor,3100,6
-Manager,  1  ,Jane Smith,5000,aR
-Employee,5,John Doe,3000.467,3
-Employee,5,
-Employee,5,John Doe,3000.467,3,
-Employee,10,John Doe,30.467,3
+Employee,5,Aahn Doe,7000,1
+Employee,3,Vily Johnson,15555,1
+Employee,6, Андрей Папин,124,3
+Employee, 8, Агдрей Папин,2444,     3
+Manager,1,Kate Smith,7000,AR

@@ -48,7 +48,7 @@ public class Manager implements ManagerService, Comparable<Manager> {
         if (salary > 0) {
             this.salary = (float) (Math.round(salary * 100.0) / 100.0);
         } else {
-            throw new NumberFormatException();
+            throw new NumberFormatException("Зарплата меньше нуля");
         }
     }
 
@@ -124,7 +124,7 @@ public class Manager implements ManagerService, Comparable<Manager> {
         Statistics statistics = new Statistics();
         statistics.setCountEmployee((long) (1 + employees.size()));
         double sum = employees.stream().mapToDouble(p -> p.getSalary()).sum();
-        double average = ((sum + getSalary()) / 2);
+        double average = ((sum + getSalary()) / statistics.getCountEmployee());
         statistics.setAverageSalary(average);
         return statistics;
     }

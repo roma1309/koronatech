@@ -5,15 +5,16 @@ import model.Manager;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class FileUtil {
+public class ParserFileUtil {
+    static Logger LOGGER = Logger.getLogger(ParserFileUtil.class.getName());
 
-    public static Set<Manager> getManager(String fileName, Set<Manager> managerSet, List<String> incorrectData, Set<Employee> employeeSet) {
-//        Set<Manager> managerList = new HashSet<>();
+    public static Set<Manager> parsingText(String fileName, Set<Manager> managerSet, List<String> incorrectData, Set<Employee> employeeSet) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName));) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -45,7 +46,7 @@ public class FileUtil {
                 }
             }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            LOGGER.log(Level.WARNING, ex.getMessage());
         }
         return managerSet;
     }
@@ -53,14 +54,14 @@ public class FileUtil {
     private static Manager createManager(String[] fields) {
         try {
             Manager manager = new Manager();
-                manager.setId(Long.parseLong(fields[1].replaceAll("^\\s+|\\s+$", "")));
-                manager.setName(fields[2].replaceAll("^\\s+|\\s+$", ""));
-                manager.setSalary(Float.parseFloat(fields[3].replaceAll("^\\s+|\\s+$", "")));
-                manager.setDepartment(fields[4]);
-                return manager;
+            manager.setId(Long.parseLong(fields[1].replaceAll("^\\s+|\\s+$", "")));
+            manager.setName(fields[2].replaceAll("^\\s+|\\s+$", ""));
+            manager.setSalary(Float.parseFloat(fields[3].replaceAll("^\\s+|\\s+$", "")));
+            manager.setDepartment(fields[4]);
+            return manager;
 
         } catch (NumberFormatException exception) {
-            System.out.println(exception.getMessage() );
+            LOGGER.log(Level.WARNING, exception.getMessage());
         }
         return null;
     }
@@ -74,7 +75,7 @@ public class FileUtil {
             employee.setManagerId(Long.parseLong(fields[4].replaceAll("^\\s+|\\s+$", "")));
             return employee;
         } catch (NumberFormatException exception) {
-            System.out.println(exception.getMessage());
+            LOGGER.log(Level.WARNING, exception.getMessage());
         }
         return null;
     }

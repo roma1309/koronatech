@@ -1,8 +1,6 @@
 package model;
 
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 public class Employee {
     private Long id;
@@ -44,7 +42,7 @@ public class Employee {
         if (salary > 0) {
             this.salary = (float) (Math.round(salary * 100.0) / 100.0);
         } else {
-            throw new NumberFormatException();
+            throw new NumberFormatException("Зарплата меньше нуля");
         }
     }
 
@@ -75,5 +73,13 @@ public class Employee {
                  id +
                 "," + name +
                 "," + salary;
+    }
+
+    public String printIncorrect() {
+        return "Employee," +
+                id +
+                "," + name +
+                "," + salary+
+                "," + managerId;
     }
 }
